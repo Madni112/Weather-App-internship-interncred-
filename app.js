@@ -75,6 +75,9 @@ async function getWeatherData(e) {
         if(data.current.condition.text == "Patchy light snow" || data.current.condition.text == "Light snow" || data.current.condition.text == "Moderate snow" || data.current.condition.text == "Heavy snow" || data.current.condition.text == "Blizzard" || data.current.condition.text == "Blowing snow" || data.current.condition.text == "Light snow showers"){
             weatherImg.src = "./snow.png"
         }
+        else{
+            weatherImg.src= "./Weather-icon.png"
+        }
 
 
         search.placeholder = data.location.name
@@ -104,3 +107,4 @@ document.addEventListener("keydown", e => {
 search.addEventListener("keydown", e => {
     if (popup.style.display === "flex" && e.key === "Enter") e.preventDefault()
 })
+
