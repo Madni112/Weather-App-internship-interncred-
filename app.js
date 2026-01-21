@@ -25,7 +25,7 @@ async function getWeatherData(e) {
     if (popup.style.display === "flex") return
 
     try {
-        if (name === "") {
+        if (search.value.trim() === "") {
             showPopup("Please Enter City Name")
             return
         }
@@ -50,32 +50,32 @@ async function getWeatherData(e) {
             weatherContainer.appendChild(weatherImg)
             weatherImg.classList.add("weather-img")
         }
-        if(data.current.is_day === 1 && (data.current.condition.text == "Sunny" || data.current.condition.text == "Clear")){
+        if (data.current.is_day === 1 && (data.current.condition.text == "Sunny" || data.current.condition.text == "Clear")) {
             weatherImg.src = "./sun.png"
         }
-        else if( data.current.is_day === 0 && (data.current.condition.text == "Sunny" || data.current.condition.text == "Clear")){
+        else if (data.current.is_day === 0 && (data.current.condition.text == "Sunny" || data.current.condition.text == "Clear")) {
             weatherImg.src = "./moon.png"
         }
-        else if(data.current.condition.text == "Cloudy" || data.current.condition.text == "Overcast"){
+        else if (data.current.condition.text == "Cloudy" || data.current.condition.text == "Overcast") {
             weatherImg.src = "./cloud.png"
         }
-        else if(data.current.condition.text == "Mist" || data.current.condition.text == "Fog" || data.current.condition.text == "Freezing fog"){
+        else if (data.current.condition.text == "Mist" || data.current.condition.text == "Fog" || data.current.condition.text == "Freezing fog") {
             weatherImg.src = "./fog.png"
         }
-        else if(data.current.is_day === 1 && data.current.condition.text == "Partly cloudy"){
+        else if (data.current.is_day === 1 && data.current.condition.text == "Partly cloudy") {
             weatherImg.src = "./cloudy sun.png"
         }
-        else if(data.current.is_day === 0 && data.current.condition.text == "Partly cloudy"){
+        else if (data.current.is_day === 0 && data.current.condition.text == "Partly cloudy") {
             weatherImg.src = "./cloudy moon.png"
         }
-        else if(data.current.condition.text == "Patchy rain nearby" || data.current.condition.text == "Light rain" || data.current.condition.text == "Heavy rain" || data.current.condition.text == "Moderate rain" || data.current.condition.text == "Thundery outbreaks possible"){
+        else if (data.current.condition.text == "Patchy rain nearby" || data.current.condition.text == "Light rain" || data.current.condition.text == "Heavy rain" || data.current.condition.text == "Moderate rain" || data.current.condition.text == "Thundery outbreaks possible") {
             weatherImg.src = "./rain.png"
         }
-        else if(data.current.condition.text == "Patchy light snow" || data.current.condition.text == "Light snow" || data.current.condition.text == "Moderate snow" || data.current.condition.text == "Heavy snow" || data.current.condition.text == "Blizzard" || data.current.condition.text == "Blowing snow" || data.current.condition.text == "Light snow showers"){
+        else if (data.current.condition.text == "Patchy light snow" || data.current.condition.text == "Light snow" || data.current.condition.text == "Moderate snow" || data.current.condition.text == "Heavy snow" || data.current.condition.text == "Blizzard" || data.current.condition.text == "Blowing snow" || data.current.condition.text == "Light snow showers") {
             weatherImg.src = "./snow.png"
         }
-        else{
-            weatherImg.src= "./Weather-icon.png"
+        else {
+            weatherImg.src = "./Weather-icon.png"
         }
 
 
@@ -106,4 +106,3 @@ document.addEventListener("keydown", e => {
 search.addEventListener("keydown", e => {
     if (popup.style.display === "flex" && e.key === "Enter") e.preventDefault()
 })
-
