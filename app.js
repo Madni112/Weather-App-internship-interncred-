@@ -12,8 +12,6 @@ const popupOk = document.getElementById("popup-ok")
 const condition = document.getElementById("condition")
 let weatherImg = false
 
-search.focus()
-
 function showPopup(msg) {
     popup.style.display = "flex"
     popupText.textContent = msg
@@ -88,6 +86,7 @@ async function getWeatherData(e) {
         regionCountry.textContent = `${data.location.region} \n ${data.location.country}`
         condition.textContent = data.current.condition.text
         search.value = ""
+        search.focus()
 
     } catch {
         showPopup("Unable to fetch weather data")
@@ -106,3 +105,4 @@ document.addEventListener("keydown", e => {
 search.addEventListener("keydown", e => {
     if (popup.style.display === "flex" && e.key === "Enter") e.preventDefault()
 })
+
